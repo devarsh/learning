@@ -1,0 +1,30 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "description": "A bunch of demos to explain me the concept of various js funds",
+  "main": "index.js",
+  "scripts": {
+    "build:lib": "babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Devarsh Shah",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^6.1.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.11.6",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.10.0",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
+    "expect": "^1.20.2",
+    "mocha": "^3.0.0",
+    "promise": "^7.1.1",
+    "rimraf": "^2.5.4"
+  }
+}
