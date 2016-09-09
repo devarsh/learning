@@ -1,3 +1,4 @@
+//credits : https://github.com/pkrumins/node-lazy
 var EventEmitter = require('events').EventEmitter
 var util = require('util')
 
@@ -58,10 +59,12 @@ util.inherits(Lazy,EventEmitter)
 
 obj = new Lazy()
 
-var temp = obj.filter(x=>x>2).map(x=>x*2).take(2).join((x)=>{console.log(x)})
+obj.filter(x=>x>2).map(x=>x*2).take(2).join((x)=>{console.log(x)})
 
 var array = [1,2,3,4,5,6]
 
 array.forEach(x=>{
   obj.emit('data',x)
 })
+
+
