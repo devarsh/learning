@@ -1,5 +1,5 @@
-require("babel-core/register");
-require("babel-polyfill");
+/*require("babel-core/register");
+require("babel-polyfill"); */
 
 
 const myFn = function* () {
@@ -21,17 +21,18 @@ const returnRandomNumbers = () => {
 
 
 
-const wrapAsync = generator => () => {
+const wrapAsync = (generator) => () => {
   const obj = generator.apply(this,arguments)
 
   const handle = (result) => {
     if(result.done) {
       return Promise.resolve(result.value)
     }
-    return Promise.resolve(result.value).then((res) => {
+    return Promise.resolve(result.value)
+    .then((res) => {
       return handle(obj.next(res))
-    },
-    (err) => {
+    })
+    .catch((err) => {
       return handle(obj.throw(err))
     })
   }
@@ -42,6 +43,7 @@ const wrapAsync = generator => () => {
     return Promise.reject(ex)
   }
 }
+
 
 var newFn = wrapAsync(myFn)
 newFn()

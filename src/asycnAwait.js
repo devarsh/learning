@@ -1,16 +1,15 @@
-require("babel-core/register")
-require("babel-polyfill")
+require("regenerator-runtime/runtime")
 
 var fetch = require('isomorphic-fetch')
 
-function fetchReddit(topic) {
+var fetchReddit = function(topic) {
   const redditUrl= `https://www.reddit.com/r/${topic}.json`
   return new Promise((resolve,reject) => {
     fetch(redditUrl).then(response => response.json()).then(result => resolve(result.data.children))
   })
 }
 
-async function read(topic) {
+var read = async function (topic) {
   var json = await fetchReddit(topic)
   console.log(json)
 }
